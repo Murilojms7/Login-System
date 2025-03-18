@@ -48,3 +48,18 @@ func (r *UpdateUserRequest) Validate() error {
 	}
 	return fmt.Errorf("at least one valid filed must be provided")
 }
+
+type LoginRequest struct {
+	Email    string `json:"email"`
+	Password string `json:"password"`
+}
+
+func (l *LoginRequest) validateLogin() error {
+	if l.Email == "" {
+		return errParamIsRequired("email", "string")
+	}
+	if l.Password == "" {
+		return errParamIsRequired("password", "string")
+	}
+	return nil
+}

@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/Murilojms7/Login-System/schemas"
+	"github.com/Murilojms7/Login-System/utils"
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
 )
@@ -19,11 +20,26 @@ func CreateUserHandler(ctx *gin.Context) {
 		return
 	}
 
+	var userExist schemas.Users
+	result := db.Where("email = ?", request.Email).First(&userExist)
+	if result.Error == nil {
+		logger.Errorf("Email already exist: %v", request.Email)
+		sendError(ctx, http.StatusBadRequest, fmt.Sprintf("Email already exist: %v", request.Email))
+		return
+	}
+
+	hashPassword, err := utils.GenerateHashPassword(request.Password)
+	if err != nil {
+		logger.Errorf("Hash error: %v", err.Error())
+		sendError(ctx, http.StatusBadRequest, err.Error())
+		return
+	}
+
 	user := schemas.Users{
 		ID:       uuid.New(),
 		Name:     request.Name,
 		Email:    request.Email,
-		Password: request.Password,
+		Password: hashPassword,
 		Phone:    request.Phone,
 		Birth:    request.Birth,
 	}

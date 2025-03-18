@@ -11,7 +11,7 @@ type Users struct {
 	gorm.Model
 	ID       uuid.UUID
 	Name     string
-	Email    string
+	Email    string `gorm:"uniqueIndex;not null"`
 	Password string
 	Phone    int64
 	Birth    string
