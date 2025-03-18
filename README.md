@@ -11,7 +11,7 @@
 
 ### **Registrar usuário**
 
-`POST` / `localhost:8000/api/register`
+`POST` / `localhost:8080/api/register`
  
 Este endpoint permite que um usuário seja registrado.
 
@@ -48,7 +48,7 @@ Este endpoint permite que um usuário seja registrado.
 
 ### **login usuário**
 
-`POST` / `localhost:8000/user/login`
+`POST` / `localhost:8080/user/login`
   
 Este endpoint permite que um usuário consiga fazer login na aplicação.
 
@@ -70,15 +70,8 @@ Este endpoint permite que um usuário consiga fazer login na aplicação.
 
 ```js
 {
-    "status": "SUCCESS",
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3NzJkNWFmNy1lYTc5LTQ4MjktOTBkNS0xODAyOTU2YWE2ODciLCJ0ZWFtSWQiOiI2NzM0Nzc0Ny1jZmUxLTRlN2QtOWYxNi04ZDBiZmFjZTZjZmQiLCJhY2Nlc3NMZXZlbCI6MiwiaWF0IjoxNzM5Nzk5OTAxLCJleHAiOjE3Mzk4MzIzMDF9.x_FcTVQRdfFqFegsnOCeFJKfsQcUw-kVZz-RwYFYQvc",
-    "user": {
-        "name": "Pedro",
-        "email": "Pedro@gmail.com",
-        "accessLevel": 2,
-        "teamId": "67347747-cfe1-4e7d-9f16-8d0bface6cfd",
-        "teamName": "Itaú"
-    }
+    "data": "success login! Welcome murilo",
+    "message": "operation from handler: login-user success"
 }
 ```
 
@@ -86,7 +79,7 @@ Este endpoint permite que um usuário consiga fazer login na aplicação.
 
 ### **Buscar usuário**
 
-`GET` / `localhost:8000/api/user/:ID`
+`GET` / `localhost:8080/api/user/:ID`
 
 Este endpoint permite que seja buscado usuário pelo ID.
 
@@ -114,7 +107,7 @@ Este endpoint permite que seja buscado usuário pelo ID.
 
 ### **Listar usuários**
 
-`GET` / `localhost:8000/api/user`
+`GET` / `localhost:8080/api/user`
 
 Este endpoint permite que seja listado todos os usuários.
 
@@ -146,7 +139,7 @@ Este endpoint permite que seja listado todos os usuários.
 
 ### **Deletar usuário**
 
-`DELETE` / `localhost:8000/api/user?id`
+`DELETE` / `localhost:8080/api/user?id`
   
 Este endpoint permite que um usuário seja removido da aplicação.
 
@@ -173,7 +166,7 @@ Este endpoint permite que um usuário seja removido da aplicação.
 
 ### **Atualizar usuário**
 
-`PUT` / `localhost:8000/api/user?id`
+`PUT` / `localhost:8080/api/user?id`
   
 Este endpoint permite que seja atualizado um usuário na aplicação.
 
