@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/Murilojms7/Login-System/schemas"
+	"github.com/Murilojms7/Login-System/utils"
 	"github.com/gin-gonic/gin"
 )
 
@@ -37,7 +38,12 @@ func UpdateUserHandler(ctx *gin.Context) {
 		user.Email = request.Email
 	}
 	if request.Password != "" {
-		user.Password = request.Password
+		password, err := utils.GenerateHashPassword(request.Password)
+		if err != nil {
+			sendError(ctx, http.StatusInternalServerError, "error updating user")
+			return
+		}
+		user.Password = password
 	}
 	if request.Phone > 0 {
 		user.Phone = request.Phone
