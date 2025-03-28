@@ -26,7 +26,7 @@ func ShowUserHandler(ctx *gin.Context) {
 		return
 	}
 
-	sendSucess(ctx, "show-user", gin.H{
+	sendSuccess(ctx, "show-user", gin.H{
 		"id":    user.ID,
 		"name":  user.Name,
 		"email": user.Email,

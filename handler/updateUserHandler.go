@@ -51,7 +51,7 @@ func UpdateUserHandler(ctx *gin.Context) {
 		sendError(ctx, http.StatusInternalServerError, "error updating user")
 		return
 	}
-	sendSucess(ctx, "update-user", gin.H{
+	sendSuccess(ctx, "update-user", gin.H{
 		"id":    user.ID,
 		"name":  user.Name,
 		"email": user.Email,

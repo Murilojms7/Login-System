@@ -24,7 +24,7 @@ func DeleteUserHandler(ctx *gin.Context) {
 		sendError(ctx, http.StatusInternalServerError, fmt.Sprintf("error deleting user with id: %v", id))
 		return
 	}
-	sendSucess(ctx, "delete-user", gin.H{
+	sendSuccess(ctx, "delete-user", gin.H{
 		"name":  user.Name,
 		"email": user.Email,
 		"phone": user.Phone,

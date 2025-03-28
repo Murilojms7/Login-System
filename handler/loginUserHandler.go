@@ -36,5 +36,5 @@ func LoginUserHandler(ctx *gin.Context) {
 		return
 	}
 
-	sendSucess(ctx, "login-user", fmt.Sprintf("success login! Welcome %v", user.Name))
+	sendSuccess(ctx, "login-user", fmt.Sprintf("success login! Welcome %v", user.Name))
 }

@@ -49,5 +49,5 @@ func CreateUserHandler(ctx *gin.Context) {
 		sendError(ctx, http.StatusInternalServerError, "error creating user on database ")
 		return
 	}
-	sendSucess(ctx, "createUser", fmt.Sprintf("user: %v created successfully", user.Email))
+	sendSuccess(ctx, "createUser", fmt.Sprintf("user: %v created successfully", user.Email))
 }

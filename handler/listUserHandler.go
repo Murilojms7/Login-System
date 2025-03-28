@@ -26,5 +26,5 @@ func ListUserHandler(ctx *gin.Context) {
 		})
 	}
 
-	sendSucess(ctx, "list-users", usersDTO)
+	sendSuccess(ctx, "list-users", usersDTO)
 }
